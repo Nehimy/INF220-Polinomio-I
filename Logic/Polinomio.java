@@ -9,14 +9,17 @@ public class Polinomio{
   //constructor
   public Polinomio(){
     dim = -1;
-    V_Coef = new double [10];
-    V_Exp = new int [10];
+    int dimFinal= 10;
+    V_Coef = new double [dimFinal];
+    V_Exp = new int [dimFinal];
+    //V_Coef = new double [10];
+    //V_Exp = new int [10];
     
   }
   ///Operaciones auxiliares
   public void Redimencionar(){
-    V_Coef = new double[15];
-    V_Exp = new int [15];
+    V_Coef = new double[dimFinal+5];
+    V_Exp = new int [dimFinal+5];
   }
   ///
   
