@@ -5,11 +5,11 @@ public class Polinomio{
   double V_Coef[];
   int V_Exp[];
   int dim;
-  
+  int dimFinal;
   //constructor
   public Polinomio(){
     dim = -1;
-    int dimFinal= 10;
+    dimFinal= 10;
     V_Coef = new double [dimFinal];
     V_Exp = new int [dimFinal];
     //V_Coef = new double [10];
@@ -24,7 +24,7 @@ public class Polinomio{
   ///
   
   //Insertar monomio
-  public void Insertar(char signo, float coeficiente, int exponente){
+  public void Insertar(char signo, double coeficiente, int exponente){
     
     if(coeficiente == 0){
         System.out.println("Error: coeficiente es igual a cero");

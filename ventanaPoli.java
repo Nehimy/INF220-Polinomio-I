@@ -8,8 +8,8 @@ import Logic.Polinomio;
 import javax.swing.*;
 import java.util.Scanner;
 import java.awt.*;
-//import java.awt.event.*;
-//import javax.swing.JOptionPane;
+import java.awt.event.*;
+import javax.swing.JOptionPane;
 
 public class ventanaPoli{
   //Atributos
@@ -35,8 +35,8 @@ public class ventanaPoli{
     ventana.setLayout(new GridBagLayout());  
     
     //Declarando caja de Coeficiente
-    CoefTxt = new JTextField("1");
-    ExpTxt = new JTextField("2");
+    CoefTxt = new JTextField("        ");
+    ExpTxt = new JTextField("       ");
     
     //Declaramos botón Sumar
     SumarBoton = new JButton("Suma");
@@ -55,7 +55,7 @@ public class ventanaPoli{
     gridConf.gridy = 0;
     gridConf.ipady = 20;
     gridConf.ipadx = 15;
-    gridConf.insets = new Insets(0,0,0,0); //padding
+    gridConf.insets = new Insets(0,0,3,3); //padding
     gridConf.gridwidth = 2;
     //Añadir CoefTxt a la ventana
     ventana.add(CoefTxt, gridConf);
@@ -68,24 +68,37 @@ public class ventanaPoli{
     ventana.add(ExpTxt, gridConf);
     
     //Confi de los SumaBoton
-      gridConf.ipady = 20;
-      gridConf.ipadx = 20;
-      gridConf.gridwidth = 1;
-      gridConf.insets = new Insets(10,10,10,10);
+    gridConf.ipady = 20;
+    gridConf.ipadx = 20;
+    gridConf.gridwidth = 1;
+    gridConf.insets = new Insets(10,10,10,10);
       
     //Ayadir SumaBoton a la ventana
-      gridConf.gridx = 0;
-      gridConf.gridy = 2;
-      ventana.add(SumarBoton, gridConf);
-    
+    gridConf.gridx = 0;
+    gridConf.gridy = 2;
+    ventana.add(SumarBoton, gridConf);
+      
+    //onclick SumaBoton
+    SumarBoton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        SumaClick();
+      }
+    });
+      
     /*------------------------*/
     //ventanaM.pack();
     ventana.setVisible(true);//Configurando visualización de la ventana
     /*------------------------*/
-		/*char s = '-';
-		float c = (float)1.0;
-		int e = 3;
-		poli.Insertar(s,c,e);*/
-		System.out.println("night");
   }
+  public void SumaClick(){
+    System.out.println("the button is pressed");
+    char s = JOptionPane.showInputDialog(ventana, "Ingresa un caracter: ").charAt(0);
+    double c = Double.parseDouble(JOptionPane.showInputDialog(ventana, "Ingresa un caracter: "));
+    int e = Integer.parseInt(JOptionPane.showInputDialog(ventana, "Ingresa un caracter: "));
+    poli.Insertar(s,c,e);
+    
+  }
+    
+	
+  
 }
