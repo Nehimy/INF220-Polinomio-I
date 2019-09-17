@@ -28,6 +28,7 @@ public class ventanaPoli{
   private JTextField SignoTxt;
   private JTextField CoefTxt;
   private JTextField ExpTxt;
+  private JTextField ResultadoTxt;
   //private JFormattedTextField ExpTxt;
   private JButton SumarBoton;
   private JLabel labelSigno;
@@ -49,27 +50,28 @@ public class ventanaPoli{
     ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);/*Finaliza el programa*/
     ventana.setLayout(new GridBagLayout());  
     
-    /*Declarando caja de Coeficiente*/
+    //Declarando todas las cajas de texto
     SignoTxt = new JTextField("");
     Border bordeSigno = BorderFactory.createLineBorder(Color.pink, 2);
     SignoTxt.setBorder(bordeSigno);
     
-    //MaskFormatter mascara = new MaskFormatter("##.##");
-    //JFormattedTextField CoefTxt = new JFormattedTextField(mascara);
     CoefTxt = new JTextField("");
     Border bordeCoef = BorderFactory.createLineBorder(Color.pink, 2);
     CoefTxt.setBorder(bordeCoef);
     
-    //JFormattedTextField ExpTxt = new JFormattedTextField (new Integer(3));
     ExpTxt = new JTextField("");
     Border bordeExp = BorderFactory.createLineBorder(Color.pink, 2);
     ExpTxt.setBorder(bordeExp);
+    
+    ResultadoTxt = new JTextField("");
+    Border bordeResultado = BorderFactory.createLineBorder(Color.pink, 2);
+    ResultadoTxt.setBorder(bordeResultado);
     
     //Declaramos botón Sumar
     SumarBoton = new JButton("Suma");
     SumarBoton.setBackground(Color.pink);
     
-    //Declaramos los labels
+    //Declaramos todos los labels
     
     labelSigno= new JLabel("Signo");
     labelSigno.setFont(new Font("Arial", 0, 18));
@@ -80,7 +82,7 @@ public class ventanaPoli{
     labelExp = new JLabel("Exponente");
     labelExp.setFont(new Font("Arial", 0, 18));
     
-    //Objeto de configuración del grid
+    /*Objeto de configuración del grid*/
     GridBagConstraints gridConf = new GridBagConstraints();
     gridConf.fill = GridBagConstraints.HORIZONTAL;
     
@@ -92,9 +94,9 @@ public class ventanaPoli{
     gridConf.gridx = 2;
     gridConf.gridy = 0;
     gridConf.ipady = 20;
-    gridConf.ipadx = 15;
+    gridConf.ipadx = 50;
     gridConf.insets = new Insets(0,0,3,3); //padding
-    gridConf.gridwidth = 2;
+    //gridConf.gridwidth = 2;
     
     //Añadir SignoTxt a la ventana
     ventana.add(SignoTxt, gridConf);
@@ -103,7 +105,7 @@ public class ventanaPoli{
     gridConf.gridx = 2;
     gridConf.gridy = 1;
     gridConf.insets = new Insets(0,0,3,3); //padding
-    gridConf.gridwidth = 2;
+    //gridConf.gridwidth = 2;
     
     //Añadir CoefTxt a la ventana
     ventana.add(CoefTxt, gridConf);
@@ -111,10 +113,23 @@ public class ventanaPoli{
     //Confi de pocicion ExpTxt
     gridConf.gridx = 2;
     gridConf.gridy = 2;
-    gridConf.insets = new Insets(0,0,0,0);
+    
+    gridConf.insets = new Insets(0,0,3,3);
+    //gridConf.gridwidth = 2;
     
     //Añadir ExpTxt a la ventana
     ventana.add(ExpTxt, gridConf);
+    
+    //Confi de pocicion ResultadoTxt
+    gridConf.gridx = 0;
+    gridConf.gridy = 4; 
+    gridConf.ipady = 20;
+    gridConf.ipadx = 15;
+    //gridConf.gridwidth = 1;
+    gridConf.insets = new Insets(0,0,0,0);
+    
+    //Añadir ResultadoTxt a la ventana
+    ventana.add(ResultadoTxt, gridConf);
     
     //Confi de los SumaBoton
     gridConf.ipady = 20;
@@ -161,7 +176,7 @@ public class ventanaPoli{
     
     double coeficiente = Double.parseDouble(CoefTxt.getText());
     
-    System.out.println(ExpTxt.getText());
+    //System.out.println(ExpTxt.getText());
     int exponente = Integer.parseInt(ExpTxt.getText());
     
     poli.Insertar(signo,coeficiente,exponente);

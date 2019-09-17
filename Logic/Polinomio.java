@@ -16,7 +16,7 @@ public class Polinomio{
     //V_Exp = new int [10];
     
   }
-  ///Operaciones auxiliares
+  /*------Operaciones auxiliares--------*/
   public void Redimencionar(){
     V_Coef = new double[dimFinal+5];
     V_Exp = new int [dimFinal+5];
@@ -26,7 +26,14 @@ public class Polinomio{
     String auxCadena = Character.toString(caracter);
     return auxCadena.matches("[-+]");
   }
-  ///
+  
+  public String SacarTodo(){
+    String cadena = "";
+    int contador = 0;
+    while(contador<caractercito.length && caractercito[contador] != 0){
+      
+    }
+  /*------------------------------------*/
   
   //Insertar monomio
   public void Insertar(char signo, double coeficiente, int exponente){
