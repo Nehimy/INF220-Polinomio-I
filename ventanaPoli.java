@@ -2,6 +2,10 @@
 Enlaces de referencia:
   - https://www.smartick.es/blog/matematicas/algebra/sumas-polinomios/
   - http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm
+  - http://chuwiki.chuidiang.org/index.php?title=Ejemplos_con_JTextField
+  - http://www.chuidiang.org/java/ejemplos/JFormattedTextField/EjemplosJFormattedTextField.php
+  - http://www.chuidiang.org/java/ejemplos/JFormattedTextField/EjemplosJFormattedTextField.php
+
 */
 
 import Logic.Polinomio;
@@ -13,6 +17,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 import javax.swing.JOptionPane;
+//import javax.swing.JFormattedTextField;
+//import java.lang.Integer;
+//import javax.swing.text.MaskFormatter;
 
 public class ventanaPoli{
   //Atributos
@@ -21,6 +28,7 @@ public class ventanaPoli{
   private JTextField SignoTxt;
   private JTextField CoefTxt;
   private JTextField ExpTxt;
+  //private JFormattedTextField ExpTxt;
   private JButton SumarBoton;
   private JLabel labelSigno;
   private JLabel labelCoef;
@@ -41,16 +49,19 @@ public class ventanaPoli{
     ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);/*Finaliza el programa*/
     ventana.setLayout(new GridBagLayout());  
     
-    //Declarando caja de Coeficiente
-    SignoTxt = new JTextField("        ");
+    /*Declarando caja de Coeficiente*/
+    SignoTxt = new JTextField("");
     Border bordeSigno = BorderFactory.createLineBorder(Color.pink, 2);
     SignoTxt.setBorder(bordeSigno);
     
-    CoefTxt = new JTextField("        ");
+    //MaskFormatter mascara = new MaskFormatter("##.##");
+    //JFormattedTextField CoefTxt = new JFormattedTextField(mascara);
+    CoefTxt = new JTextField("");
     Border bordeCoef = BorderFactory.createLineBorder(Color.pink, 2);
     CoefTxt.setBorder(bordeCoef);
     
-    ExpTxt = new JTextField("       ");
+    //JFormattedTextField ExpTxt = new JFormattedTextField (new Integer(3));
+    ExpTxt = new JTextField("");
     Border bordeExp = BorderFactory.createLineBorder(Color.pink, 2);
     ExpTxt.setBorder(bordeExp);
     
@@ -144,11 +155,16 @@ public class ventanaPoli{
     /*------------------------*/
   }
   public void SumaClick(){
-    System.out.println("the button is pressed");
-    char s = JOptionPane.showInputDialog(ventana, "Ingresa un caracter: ").charAt(0);
-    double c = Double.parseDouble(JOptionPane.showInputDialog(ventana, "Ingresa un caracter: "));
-    int e = Integer.parseInt(JOptionPane.showInputDialog(ventana, "Ingresa un caracter: "));
-    poli.Insertar(s,c,e);
+    System.out.println("the button is pressed"); 
+    char signo = SignoTxt.getText().charAt(0);
+    System.out.println("FF");
+    
+    double coeficiente = Double.parseDouble(CoefTxt.getText());
+    
+    System.out.println(ExpTxt.getText());
+    int exponente = Integer.parseInt(ExpTxt.getText());
+    
+    poli.Insertar(signo,coeficiente,exponente);
     
   }
     
