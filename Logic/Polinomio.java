@@ -5,21 +5,21 @@ public class Polinomio{
   double V_Coef[];
   int V_Exp[];
   int dim;
-  int dimFinal;
+  //int dimFinal;
   //constructor
   public Polinomio(){
     dim = -1;
-    dimFinal= 10;
-    V_Coef = new double [dimFinal];
-    V_Exp = new int [dimFinal];
+    dim= 10;
+    V_Coef = new double [dim];
+    V_Exp = new int [dim];
     //V_Coef = new double [10];
     //V_Exp = new int [10];
     
   }
   /*------Operaciones auxiliares--------*/
   public void Redimencionar(){
-    V_Coef = new double[dimFinal+5];
-    V_Exp = new int [dimFinal+5];
+    V_Coef = new double[dim+5];
+    V_Exp = new int [dim+5];
   }
   
   public boolean Pertenece(char caracter){
@@ -27,12 +27,15 @@ public class Polinomio{
     return auxCadena.matches("[-+]");
   }
   
-  public String SacarTodo(){
+  public String ObtenerTodo(){
     String cadena = "";
     int contador = 0;
-    while(contador<caractercito.length && caractercito[contador] != 0){
-      
+    while(contador<=dim){
+      cadena = String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]);
+      contador++;
     }
+    return cadena;
+  }
   /*------------------------------------*/
   
   //Insertar monomio
@@ -58,7 +61,7 @@ public class Polinomio{
           }
           if(i <= dim){
             if( exponente != V_Exp[i]){
-              //redimencionar();
+              Redimencionar();
               for(int aux=dim; aux > 1; aux--){
                 V_Coef[aux+1] = V_Coef[aux];
                 V_Exp[aux+1] = V_Exp[aux];
@@ -81,9 +84,7 @@ public class Polinomio{
           }
         }
       }
-  }
+    }
   
   }
-  
-
 }

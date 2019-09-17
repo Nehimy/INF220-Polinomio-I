@@ -172,14 +172,17 @@ public class ventanaPoli{
   public void SumaClick(){
     System.out.println("the button is pressed"); 
     char signo = SignoTxt.getText().charAt(0);
-    System.out.println("FF");
     
     double coeficiente = Double.parseDouble(CoefTxt.getText());
     
-    //System.out.println(ExpTxt.getText());
+    System.out.println(ExpTxt.getText());
     int exponente = Integer.parseInt(ExpTxt.getText());
     
+    //Insgresar monomio
     poli.Insertar(signo,coeficiente,exponente);
+    
+    //Mostrar polinomio en la ventana 
+    ResultadoTxt.setText(poli.ObtenerTodo());
     
   }
     
