@@ -5,7 +5,7 @@ Enlaces de referencia:
   - http://chuwiki.chuidiang.org/index.php?title=Ejemplos_con_JTextField
   - http://www.chuidiang.org/java/ejemplos/JFormattedTextField/EjemplosJFormattedTextField.php
   - http://www.chuidiang.org/java/ejemplos/JFormattedTextField/EjemplosJFormattedTextField.php
-
+  - https://es.stackoverflow.com/questions/1487/guia-definitiva-de-conversi%C3%B3n-de-tipos-en-java
 */
 
 import Logic.Polinomio;
@@ -170,12 +170,12 @@ public class ventanaPoli{
     /*------------------------*/
   }
   public void SumaClick(){
-    System.out.println("the button is pressed"); 
+    //System.out.println("the button is pressed"); 
     char signo = SignoTxt.getText().charAt(0);
     
     double coeficiente = Double.parseDouble(CoefTxt.getText());
     
-    System.out.println(ExpTxt.getText());
+    //System.out.println(ExpTxt.getText());
     int exponente = Integer.parseInt(ExpTxt.getText());
     
     //Insgresar monomio
@@ -183,6 +183,13 @@ public class ventanaPoli{
     
     //Mostrar polinomio en la ventana 
     ResultadoTxt.setText(poli.ObtenerTodo());
+    
+    //Limpiar todas las cajas de texto
+    //SignoTxt.setText("");
+    //CoefTxt.setText("");
+    //ExpTxt.setText("");
+    
+    
     
   }
     
