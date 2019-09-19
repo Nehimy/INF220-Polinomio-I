@@ -67,8 +67,8 @@ public class ventanaPoli{
     Border bordeResultado = BorderFactory.createLineBorder(Color.pink, 2);
     ResultadoTxt.setBorder(bordeResultado);
     
-    //Declaramos botón Sumar
-    SumarBoton = new JButton("Suma");
+    //Declaramos botón Insertar
+    SumarBoton = new JButton("Insertar");
     SumarBoton.setBackground(Color.pink);
     
     //Declaramos todos los labels
