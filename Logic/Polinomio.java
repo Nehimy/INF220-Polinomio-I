@@ -18,21 +18,18 @@ public class Polinomio{
   //constructor
   public Polinomio(){
     dim = -1;
-    //int [] V_Coef = {};
-    //int [] V_Exp = {};
-    //V_Coef = new double [1];
-    //V_Exp = new int [1];
-    V_Exp = new int [1];
-    V_Coef = new double [1];
+    V_Exp = new int [5];
+    V_Coef = new double [5];
     
   }
   /*------Operaciones auxiliares--------*/
   public void Redimencionar(){
     System.out.println("Redi");
-    System.out.println(Integer.toString(dim+1));
+    System.out.println(Integer.toString(dim));
+    
     if(dim+1 == V_Coef.length){
-      double aux1[] = new double[dim+1];
-      int aux2[] = new int [dim+1];
+      double aux1[] = new double[V_Coef.length+1];
+      int aux2[] = new int [V_Coef.length+1];
     
       System.arraycopy(V_Coef,0,aux1,0,dim+1);
       System.arraycopy(V_Exp,0,aux2,0,dim+1);
@@ -41,19 +38,6 @@ public class Polinomio{
       V_Coef = new double [aux2.length + 5];
     }
     System.out.println(Integer.toString(V_Coef.length));
-    
-    /*aux1 = new Monomio[P.length];
-    System.arraycopy(P, 0, aux1, 0, P.length);
-    P = new Monomio[aux1.length + 10];
-    System.arraycopy(aux1, 0, P, 0, aux1.length);*/
-  
-    //V_Coef = (int[])resizeArray(V_Coef,2);
-    //V_Exp = (int[])resizeArray(V_Exp,2);
-    //dim = dim +1;
-    //V_Coef = V_Coef[dim];
-    //V_Exp = V_Exp[dim];
-    /*V_Exp = new int [5];
-    V_Coef = new double [5];*/
     
   }
   
@@ -65,14 +49,46 @@ public class Polinomio{
   public String ObtenerTodo(){
     String cadena = "";
     int contador = 0;
-    while(contador<=dim && V_Coef[contador] !=0){
+    while(contador <= V_Coef.length-1){
       System.out.println("entro en obtener todo");
       System.out.println(String.valueOf(V_Coef[contador]));
       System.out.println(Integer.toString(V_Exp[contador]));
-      cadena = cadena + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]);
+      cadena = cadena + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]) + " ";
       contador++;
     }
     return cadena;
+  }
+  
+  //preguntar si el coeficiente es 0 retorna falso
+  public boolean SiCoeficienteEsCero(double coeficiente){
+    if(coeficiente == 0){
+        System.out.println("Error: coeficiente es igual a cero");
+        return false;
+      }else{
+        return true;
+      }
+  }
+  
+  //si un monomio del vector es mayor que uno nuevo retornar la pocicion del monomio en el vector
+  public int MonomioMayor(int exponente){
+    int i = V_Coef.length-1;
+    int aux = -1;
+    while(i>=0){
+      if(exponente < V_Exp[i]){
+        aux = i;
+        i=-1;
+      }
+      i--;
+    }
+    if(aux>-1){
+      System.out.println("aux");
+      return aux;
+      
+    }else{
+      System.out.println("i455");
+      return i;
+    }
+    
   }
   /*------------------------------------*/
   
@@ -84,15 +100,41 @@ public class Polinomio{
          coeficiente = - coeficiente;
       }
       
-      if(coeficiente == 0){
-        System.out.println("Error: coeficiente es igual a cero");
-      }else{
-        if(dim == -1){
+      if(SiCoeficienteEsCero(coeficiente) && dim == -1 ){
+        dim++;
+        System.out.println("adim");
+        System.out.println(Integer.toString(dim));
+        V_Coef[dim] = coeficiente;
+        V_Exp[dim] = exponente;
+      }
+      
+      if(SiCoeficienteEsCero(coeficiente) && dim > -1){
+        System.out.println("dim");
+        System.out.println(Integer.toString(dim));
+        int mono = MonomioMayor(exponente);
+        System.out.println("merwerwhjhgfdasghjhfdsoo");
+        System.out.println(Integer.toString(mono));
+        
+        if(mono == dim){
+          Redimencionar();
+          //int i = dim;
+          System.out.println("irrre");
+          //System.out.println(Integer.toString(i));
+          System.out.println("medfww333oo");
+          System.out.println(Integer.toString(mono));
+          /*while(i>=mono){
+            V_Coef[i+1] = V_Coef[i];
+            V_Exp[i+1] = V_Exp[i];
+            i--;
+          }*/
+          V_Coef[dim+1] = coeficiente;
+          V_Exp[dim+1] = exponente;
+          System.out.println("a");
+          //System.out.println(Integer.toString(V_Exp[i+1]));
           dim++;
-          V_Coef[dim] = coeficiente;
-          V_Exp[dim] = exponente;
         }
       }
+      
     }
   
   }
