@@ -3,15 +3,13 @@
 package Logic;
 import java.util.Scanner;
 //import java.utils.Arrays.copyOf;
-import java.util.Arrays;
-//import java.util.*;
+//import java.util.Arrays;
+import java.util.*;
 
 public class Polinomio{
   double[] V_Coef;
   //double V_Coef[];
   int[] V_Exp;
-  //double V_Coef[];
-  //int V_Exp[];
   int dim;
 
 
@@ -22,6 +20,7 @@ public class Polinomio{
     V_Coef = new double [5];
     
   }
+  
   /*------Operaciones auxiliares--------*/
   public void Redimencionar(){
     if(dim+1 == V_Coef.length){
@@ -46,6 +45,7 @@ public class Polinomio{
     }
     
   }
+  
   //Retorna todo el polinomio concatenado
   public String ObtenerTodo(){
     String cadena = "";
@@ -69,7 +69,7 @@ public class Polinomio{
   //Si un monomio del vector es mayor que uno nuevo retornar la posicion del monomio en el vector
   public int BuscarPosicion(int exponente){
     int i = dim;
-    while(i > -1 && exponente > V_Exp[i]){
+    while(i > -1 && exponente >= V_Exp[i]){
       i--;
     }
     i++;
@@ -80,8 +80,6 @@ public class Polinomio{
   public void InsertarEn(int position, double coeficiente, int exponente){
     Redimencionar();
     int i = dim;
-    System.out.println(Integer.toString(position));
-    System.out.println(Integer.toString(dim));
     while(i > position){
       i--;
       V_Coef[i+1] = V_Coef[i];
@@ -107,8 +105,13 @@ public class Polinomio{
         V_Exp[dim] = exponente;
       } else {
         int position = BuscarPosicion(exponente);
-        dim++;
-        InsertarEn(position,coeficiente, exponente);
+        if(V_Exp[position] == exponente){
+          V_Coef[position] = V_Coef[position] + coeficiente;
+        }else{
+          dim++;
+          InsertarEn(position,coeficiente, exponente);
+        }
+        
       }
       
     }

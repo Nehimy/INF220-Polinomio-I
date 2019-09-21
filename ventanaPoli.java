@@ -147,8 +147,6 @@ public class ventanaPoli{
       gridConf.gridy = 0;
       gridConf.ipady = 20;
       gridConf.ipadx = 15;
-      //gridConf.insets = new Insets(0,0,0,0); //padding
-      //gridConf.gridwidth = 2;
       ventana.add(labelSigno, gridConf); 
       
       gridConf.gridy = 1;
@@ -169,6 +167,7 @@ public class ventanaPoli{
     ventana.setVisible(true);//Configurando visualización de la ventana
     /*------------------------*/
   }
+  
   public void SumaClick(){
     //System.out.println("the button is pressed"); 
     char signo = SignoTxt.getText().charAt(0);
