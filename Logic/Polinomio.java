@@ -50,8 +50,14 @@ public class Polinomio{
     String cadena = "";
     int contador = 0;
     while(contador <= dim){
-      cadena = cadena + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]) + " ";
-      contador++;
+      if (V_Coef[contador]<0){
+        cadena = cadena + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]) + " ";
+        contador++;
+      }else{
+        cadena = cadena + "+" + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]) + " ";
+        contador++;
+      }
+        
     }
     return cadena;
   }
