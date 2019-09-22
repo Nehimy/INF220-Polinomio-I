@@ -8,7 +8,6 @@ import java.util.*;
 
 public class Polinomio{
   double[] V_Coef;
-  //double V_Coef[];
   int[] V_Exp;
   int dim;
 
@@ -22,7 +21,7 @@ public class Polinomio{
   }
   
   /*------Operaciones auxiliares--------*/
-  public void Redimencionar(){
+  public void Redimensionar(){
     if(dim+1 == V_Coef.length){
       double aux1[] = new double[V_Coef.length+1];
       int aux2[] = new int [V_Coef.length+1];
@@ -78,7 +77,7 @@ public class Polinomio{
   
   //Insertar monomio en una posicion astras
   public void InsertarEn(int position, double coeficiente, int exponente){
-    Redimencionar();
+    Redimensionar();
     int i = dim;
     while(i > position){
       i--;
