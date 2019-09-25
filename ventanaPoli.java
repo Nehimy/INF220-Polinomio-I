@@ -9,6 +9,7 @@ Enlaces de referencia:
 */
 
 import Logic.Polinomio;
+import Logic.PolinomioII;
 import javax.swing.*;
 import java.util.Scanner;
 import java.awt.*;
@@ -29,7 +30,6 @@ public class ventanaPoli{
   private JTextField CoefTxt;
   private JTextField ExpTxt;
   private JTextField ResultadoTxt;
-  //private JFormattedTextField ExpTxt;
   private JButton SumarBoton;
   private JLabel labelSigno;
   private JLabel labelCoef;
@@ -96,7 +96,7 @@ public class ventanaPoli{
     gridConf.ipady = 20;
     gridConf.ipadx = 50;
     gridConf.insets = new Insets(0,0,3,3); //padding
-    //gridConf.gridwidth = 2;
+
     
     //Añadir SignoTxt a la ventana
     ventana.add(SignoTxt, gridConf);
@@ -105,7 +105,7 @@ public class ventanaPoli{
     gridConf.gridx = 2;
     gridConf.gridy = 1;
     gridConf.insets = new Insets(0,0,3,3); //padding
-    //gridConf.gridwidth = 2;
+
     
     //Añadir CoefTxt a la ventana
     ventana.add(CoefTxt, gridConf);
@@ -115,7 +115,7 @@ public class ventanaPoli{
     gridConf.gridy = 2;
     
     gridConf.insets = new Insets(0,0,3,3);
-    //gridConf.gridwidth = 2;
+
     
     //Añadir ExpTxt a la ventana
     ventana.add(ExpTxt, gridConf);
@@ -125,7 +125,6 @@ public class ventanaPoli{
     gridConf.gridy = 4; 
     gridConf.ipady = 20;
     gridConf.ipadx = 15;
-    //gridConf.gridwidth = 1;
     gridConf.insets = new Insets(0,0,0,0);
     
     //Añadir ResultadoTxt a la ventana
