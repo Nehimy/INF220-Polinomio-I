@@ -30,7 +30,8 @@ public class ventanaPoli{
   private JTextField CoefTxt;
   private JTextField ExpTxt;
   private JTextField ResultadoTxt;
-  private JButton SumarBoton;
+  private JButton Insertar;
+  private JButton GetCoeficiente;
   private JLabel labelSigno;
   private JLabel labelCoef;
   private JLabel labelExp;
@@ -68,8 +69,12 @@ public class ventanaPoli{
     ResultadoTxt.setBorder(bordeResultado);
     
     //Declaramos botón Insertar
-    SumarBoton = new JButton("Insertar");
-    SumarBoton.setBackground(Color.pink);
+    Insertar = new JButton("Insertar");
+    Insertar.setBackground(Color.pink);
+    
+    //Declaramos botón Get Coeficiente
+    GetCoeficiente = new JButton("Get Coeficiente");
+    GetCoeficiente.setBackground(Color.pink);
     
     //Declaramos todos los labels
     
@@ -130,16 +135,27 @@ public class ventanaPoli{
     //Añadir ResultadoTxt a la ventana
     ventana.add(ResultadoTxt, gridConf);
     
-    //Confi de los SumaBoton
+    //Confi de los InsertarBoton
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
     gridConf.gridwidth = 1;
     gridConf.insets = new Insets(10,10,10,10);
       
-    //Ayadir SumaBoton a la ventana
+    //Ayadir InsertarBoton a la ventana
     gridConf.gridx = 0;
     gridConf.gridy = 3;
-    ventana.add(SumarBoton, gridConf);
+    ventana.add(Insertar, gridConf);
+    
+    //Confi de Get Coeficiente
+    gridConf.ipady = 20;
+    gridConf.ipadx = 20;
+    gridConf.gridwidth = 2;
+    gridConf.insets = new Insets(10,10,10,10);
+    
+    //Ayadir Insertar Get Coeficiente en la ventana
+    gridConf.gridx = 0;
+    gridConf.gridy = 3;
+    ventana.add(GetCoeficiente, gridConf);
       
     //Añadir labels a la ventana
       gridConf.gridx = 0;
@@ -154,10 +170,17 @@ public class ventanaPoli{
       gridConf.gridy = 2;
       ventana.add(labelExp, gridConf);
       
-    //onclick SumaBoton
-    SumarBoton.addActionListener(new ActionListener(){
+    //onclick Insertar
+    InsertarBoton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        SumaClick();
+        InsertarClick();
+      }
+    });
+    
+    //onclick Get Coeficiente
+    GetCoeficienteBoton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        GetCoeficienteClick();
       }
     });
       
@@ -167,7 +190,7 @@ public class ventanaPoli{
     /*------------------------*/
   }
   
-  public void SumaClick(){
+  public void InsertarClick(){
     //System.out.println("the button is pressed"); 
     char signo = SignoTxt.getText().charAt(0);
     
@@ -185,12 +208,12 @@ public class ventanaPoli{
     //Limpiar todas las cajas de texto
     //SignoTxt.setText("");
     //CoefTxt.setText("");
-    //ExpTxt.setText("");
-    
-    
-    
+    //ExpTxt.setText("");    
   }
     
-	
+	public void GetCoeficienteClick(){
+	  int variableExponente = Integer.parseInt(JOptionPane.showInputDialog(ventanaPoli, "Ingresa un exponente: "));
+	  poli.ObtenerCoeficiente(variableExponente);
+	}
   
 }

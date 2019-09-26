@@ -122,4 +122,15 @@ public class Polinomio{
     }
   
   }
+  
+  //get monomio
+  //Obtiene el coeficiente si existe, para ello recibe un exponente
+  public double ObtenerCoeficiente( int exponente){
+    int i=0;
+    while(i <=dim && V_Exp[i]!=exponente){
+      i++;
+    }
+    return V_Coef[i];
+  }
+  
 }

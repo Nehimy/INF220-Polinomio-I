@@ -5,8 +5,8 @@ import java.util.*;
 
 public class PolinomioII{
   private Polinomio p = new Polinomio();
-  Polinomio A[];
-  Polinomio B[];
+  Polinomio[] A;
+  Polinomio[] B;
   int dim_A;
   int dim_B;
   
