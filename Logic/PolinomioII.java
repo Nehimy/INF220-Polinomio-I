@@ -29,7 +29,7 @@ public class PolinomioII{
   /*---------------------*/
   public void InsertarPolinomio_A(char signo, double coeficiente, int exponente){
     RedimensionarA();
-    A = p.Insertar(signo,coeficiente,exponente);
+    //A = p.Insertar(signo,coeficiente,exponente);
     System.out.println("Insertar polinomio A");
   }
   

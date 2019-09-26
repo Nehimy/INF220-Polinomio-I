@@ -18,20 +18,23 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 import javax.swing.JOptionPane;
-//import javax.swing.JFormattedTextField;
-//import java.lang.Integer;
-//import javax.swing.text.MaskFormatter;
+
 
 public class ventanaPoli{
   //Atributos
   private Polinomio poli = new Polinomio();
+  private Polinomio A = new Polinomio();
+  private Polinomio B = new Polinomio(); 
+  
   private JFrame ventana;
   private JTextField SignoTxt;
   private JTextField CoefTxt;
   private JTextField ExpTxt;
   private JTextField ResultadoTxt;
+  
   private JButton Insertar;
-  private JButton GetCoeficiente;
+  private JButton InsertarEn_A;
+  
   private JLabel labelSigno;
   private JLabel labelCoef;
   private JLabel labelExp;
@@ -72,9 +75,9 @@ public class ventanaPoli{
     Insertar = new JButton("Insertar");
     Insertar.setBackground(Color.pink);
     
-    //Declaramos botón Get Coeficiente
-    GetCoeficiente = new JButton("Get Coeficiente");
-    GetCoeficiente.setBackground(Color.pink);
+    //Declaramos botón Insertar en A
+    InsertarEn_A = new JButton("Insertar en A");
+    InsertarEn_A.setBackground(Color.pink);
     
     //Declaramos todos los labels
     
@@ -135,27 +138,27 @@ public class ventanaPoli{
     //Añadir ResultadoTxt a la ventana
     ventana.add(ResultadoTxt, gridConf);
     
-    //Confi de los InsertarBoton
+    //Confi de los Insertar 
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
     gridConf.gridwidth = 1;
     gridConf.insets = new Insets(10,10,10,10);
       
-    //Ayadir InsertarBoton a la ventana
+    //Ayadir Insertar en a la ventana
     gridConf.gridx = 0;
     gridConf.gridy = 3;
     ventana.add(Insertar, gridConf);
     
-    //Confi de Get Coeficiente
+    //Confi de InsertarEn_A en la ventana
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
     gridConf.gridwidth = 2;
     gridConf.insets = new Insets(10,10,10,10);
     
-    //Ayadir Insertar Get Coeficiente en la ventana
-    gridConf.gridx = 0;
+    //Ayadir InsertarEn_A en la ventana
+    gridConf.gridx = 1;
     gridConf.gridy = 3;
-    ventana.add(GetCoeficiente, gridConf);
+    ventana.add(InsertarEn_A, gridConf);
       
     //Añadir labels a la ventana
       gridConf.gridx = 0;
@@ -171,16 +174,16 @@ public class ventanaPoli{
       ventana.add(labelExp, gridConf);
       
     //onclick Insertar
-    InsertarBoton.addActionListener(new ActionListener(){
+    Insertar.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         InsertarClick();
       }
     });
     
     //onclick Get Coeficiente
-    GetCoeficienteBoton.addActionListener(new ActionListener(){
+    InsertarEn_A.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        GetCoeficienteClick();
+        InsertarEn_AClick();
       }
     });
       
@@ -191,12 +194,12 @@ public class ventanaPoli{
   }
   
   public void InsertarClick(){
-    //System.out.println("the button is pressed"); 
+    
     char signo = SignoTxt.getText().charAt(0);
     
     double coeficiente = Double.parseDouble(CoefTxt.getText());
     
-    //System.out.println(ExpTxt.getText());
+    
     int exponente = Integer.parseInt(ExpTxt.getText());
     
     //Insgresar monomio
@@ -211,9 +214,13 @@ public class ventanaPoli{
     //ExpTxt.setText("");    
   }
     
-	public void GetCoeficienteClick(){
-	  int variableExponente = Integer.parseInt(JOptionPane.showInputDialog(ventanaPoli, "Ingresa un exponente: "));
-	  poli.ObtenerCoeficiente(variableExponente);
+	public void InsertarEn_AClick(){
+	
+	  char signo = SignoTxt.getText().charAt(0);
+    double coeficiente = Double.parseDouble(CoefTxt.getText());
+    int exponente = Integer.parseInt(ExpTxt.getText());
+	  A.InsertarEn_A(signo,coeficiente,exponente);
+	  
 	}
   
 }
