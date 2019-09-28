@@ -34,6 +34,7 @@ public class ventanaPoli{
   
   private JButton Insertar;
   private JButton InsertarEn_A;
+  private JButton InsertarEn_B;
   
   private JLabel labelSigno;
   private JLabel labelCoef;
@@ -76,11 +77,14 @@ public class ventanaPoli{
     Insertar.setBackground(Color.pink);
     
     //Declaramos botón Insertar en A
-    InsertarEn_A = new JButton("Insertar en A");
+    InsertarEn_A = new JButton("Insert in A");
     InsertarEn_A.setBackground(Color.pink);
-    
-    //Declaramos todos los labels
-    
+
+     //Declaramos botón Insertar en B
+     InsertarEn_B = new JButton("Insert in B");  
+     InsertarEn_B.setBackground(Color.pink); 
+        
+    //Declaramos todos los labels    
     labelSigno= new JLabel("Signo");
     labelSigno.setFont(new Font("Arial", 0, 18));
     
@@ -138,13 +142,13 @@ public class ventanaPoli{
     //Añadir ResultadoTxt a la ventana
     ventana.add(ResultadoTxt, gridConf);
     
-    //Confi de los Insertar 
+    //Confi de Insertar 
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
     gridConf.gridwidth = 1;
     gridConf.insets = new Insets(10,10,10,10);
       
-    //Ayadir Insertar en a la ventana
+    //Ayadir Insertar en la ventana
     gridConf.gridx = 0;
     gridConf.gridy = 3;
     ventana.add(Insertar, gridConf);
@@ -159,6 +163,17 @@ public class ventanaPoli{
     gridConf.gridx = 1;
     gridConf.gridy = 3;
     ventana.add(InsertarEn_A, gridConf);
+    
+    //Confi de InsertarEn_B
+    gridConf.ipady = 20;
+    gridConf.ipadx = 20;
+    gridConf.gridwidth = 3;
+    gridConf.insets = new Insets(10,10,10,10);
+    
+    //Ayadir InsertarEn_B en la ventana
+    gridConf.gridx = 3;
+    gridConf.gridy = 3;
+    ventana.add(InsertarEn_B, gridConf);
       
     //Añadir labels a la ventana
       gridConf.gridx = 0;
@@ -180,12 +195,19 @@ public class ventanaPoli{
       }
     });
     
-    //onclick Get Coeficiente
+    //onclick Insertar en A
     InsertarEn_A.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         InsertarEn_AClick();
       }
     });
+    
+    //onclick Insertar en B
+    InsertarEn_B.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        InsertarEn_BClick();
+      }
+    }); 
       
     /*------------------------*/
     //ventanaM.pack();
@@ -219,8 +241,17 @@ public class ventanaPoli{
 	  char signo = SignoTxt.getText().charAt(0);
     double coeficiente = Double.parseDouble(CoefTxt.getText());
     int exponente = Integer.parseInt(ExpTxt.getText());
-	  A.InsertarEn_A(signo,coeficiente,exponente);
-	  
+	  A.Insertar(signo,coeficiente,exponente);
+	  ResultadoTxt.setText(A.ObtenerTodo());
 	}
+ 
+ public void InsertarEn_BClick(){
+  
+    char signo = SignoTxt.getText().charAt(0);
+    double coeficiente = Double.parseDouble(CoefTxt.getText());
+    int exponente = Integer.parseInt(ExpTxt.getText());
+	  B.Insertar(signo,coeficiente,exponente);
+	  ResultadoTxt.setText(B.ObtenerTodo());
+ }
   
 }
