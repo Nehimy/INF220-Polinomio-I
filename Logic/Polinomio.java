@@ -127,10 +127,42 @@ public class Polinomio{
   //Obtiene el coeficiente si existe, para ello recibe un exponente
   public double ObtenerCoeficiente( int exponente){
     int i=0;
-    while(i <=dim && V_Exp[i]!=exponente){
+    while(i <= dim && V_Exp[i]!=exponente){
       i++;
     }
     return V_Coef[i];
   }
+  
+  //Obtener Signo del coeficiente
+  public char ObtenerSigno_DelCoeficiente(double Coeficiente){
+    char Signito;
+    if(Coeficiente > 0){
+      Signito = '+';
+    }else{
+      Signito = '-';
+    }
+    return Signito;
+  }
+  
+  //Suma de 2 polinomios
+  public void Sumar(Polinomio A, Polinomio B){
+    int i = 0;
+    char Signito;
+    while(i <= A.dim){
+      Signito = ObtenerSigno_DelCoeficiente(A.V_Coef[i]);
+      System.out.println(Signito);
+      Insertar(Signito,A.V_Coef[i],A.V_Exp[i]);
+      i++;
+    }
+    
+    i=0;
+    while(i <= B.dim){
+      Signito = ObtenerSigno_DelCoeficiente(B.V_Coef[i]);
+      System.out.println(Signito);
+      Insertar(Signito,B.V_Coef[i],B.V_Exp[i]);
+      i++;
+    }
+  }
+  
   
 }

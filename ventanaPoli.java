@@ -35,6 +35,7 @@ public class ventanaPoli{
   private JButton Insertar;
   private JButton InsertarEn_A;
   private JButton InsertarEn_B;
+  private JButton Sumar_AyB;
   
   private JLabel labelSigno;
   private JLabel labelCoef;
@@ -83,6 +84,10 @@ public class ventanaPoli{
      //Declaramos botón Insertar en B
      InsertarEn_B = new JButton("Insert in B");  
      InsertarEn_B.setBackground(Color.pink); 
+     
+     //Declaramos botón Sumar_AyB
+     Sumar_AyB = new JButton("Sumar");
+     Sumar_AyB.setBackground(Color.pink);
         
     //Declaramos todos los labels    
     labelSigno= new JLabel("Signo");
@@ -174,6 +179,17 @@ public class ventanaPoli{
     gridConf.gridx = 3;
     gridConf.gridy = 3;
     ventana.add(InsertarEn_B, gridConf);
+    
+    //Confi de Sumar_AyB
+    gridConf.ipady = 20;
+    gridConf.ipadx = 20;
+    gridConf.gridwidth = 4;
+    gridConf.insets = new Insets(10,10,10,10);
+    
+    //Ayadir Sumar_AyB en la ventana
+    gridConf.gridx = 3;
+    gridConf.gridy = 4;
+    ventana.add(Sumar_AyB, gridConf);
       
     //Añadir labels a la ventana
       gridConf.gridx = 0;
@@ -208,6 +224,13 @@ public class ventanaPoli{
         InsertarEn_BClick();
       }
     }); 
+    
+    //onclick Sumar_AyB
+    Sumar_AyB.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        Sumar_AyBClick();
+      }
+    });
       
     /*------------------------*/
     //ventanaM.pack();
@@ -253,5 +276,11 @@ public class ventanaPoli{
 	  B.Insertar(signo,coeficiente,exponente);
 	  ResultadoTxt.setText(B.ObtenerTodo());
  }
+ 
+ public void Sumar_AyBClick(){
+   poli.Sumar(A,B);
+   ResultadoTxt.setText(poli.ObtenerTodo());
+ }
+ 
   
 }
