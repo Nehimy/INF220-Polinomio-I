@@ -25,6 +25,7 @@ public class ventanaPoli{
   private Polinomio poli = new Polinomio();
   private Polinomio A = new Polinomio();
   private Polinomio B = new Polinomio(); 
+  private Polinomio C = new Polinomio();
   
   private JFrame ventana;
   private JTextField SignoTxt;
@@ -278,8 +279,8 @@ public class ventanaPoli{
  }
  
  public void Sumar_AyBClick(){
-   poli.Sumar(A,B);
-   ResultadoTxt.setText(poli.ObtenerTodo());
+   C.Sumar(A,B);
+   ResultadoTxt.setText(C.ObtenerTodo());
  }
  
   

@@ -52,12 +52,10 @@ public class Polinomio{
     while(contador <= dim){
       if (V_Coef[contador]<0){
         cadena = cadena + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]) + " ";
-        contador++;
       }else{
         cadena = cadena + "+" + String.valueOf(V_Coef[contador]) + "x" + "^" + Integer.toString(V_Exp[contador]) + " ";
-        contador++;
       }
-        
+      contador++;  
     }
     return cadena;
   }
@@ -98,12 +96,10 @@ public class Polinomio{
   
   //Insertar monomio
   public void Insertar(char signo, double coeficiente, int exponente){
-   
     if(!SiCoeficienteEsCero(coeficiente) && Pertenece(signo)){
-      if(signo == '-'){
-         coeficiente = - coeficiente;
+      if(signo == '-' && coeficiente>0){
+         coeficiente = - coeficiente;  
       }
-      
       if(dim == -1 ){
         dim++;
         V_Coef[dim] = coeficiente;
@@ -111,7 +107,7 @@ public class Polinomio{
       } else {
         int position = BuscarPosicion(exponente);
         if(V_Exp[position] == exponente){
-          V_Coef[position] = V_Coef[position] + coeficiente;
+          V_Coef[position] = V_Coef[position] + coeficiente;       
         }else{
           dim++;
           InsertarEn(position,coeficiente, exponente);
@@ -150,7 +146,7 @@ public class Polinomio{
     char Signito;
     while(i <= A.dim){
       Signito = ObtenerSigno_DelCoeficiente(A.V_Coef[i]);
-      System.out.println(Signito);
+      //System.out.println(Signito);
       Insertar(Signito,A.V_Coef[i],A.V_Exp[i]);
       i++;
     }
@@ -158,7 +154,7 @@ public class Polinomio{
     i=0;
     while(i <= B.dim){
       Signito = ObtenerSigno_DelCoeficiente(B.V_Coef[i]);
-      System.out.println(Signito);
+      //System.out.println(Signito);
       Insertar(Signito,B.V_Coef[i],B.V_Exp[i]);
       i++;
     }
