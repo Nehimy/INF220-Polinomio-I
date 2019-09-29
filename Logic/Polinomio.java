@@ -160,5 +160,29 @@ public class Polinomio{
     }
   }
   
+  //Multiplicar 2 polinomios
+  public void Multiplicar(Polinomio A, Polinomio B){
+    int contador1, contador2, expAux;
+    double coefAux;
+    char signoAux;
+    contador1 = 0;
+    contador2 = 0;
+    
+    while(contador1 <= A.dim){
+      while(contador2 <= B.dim){
+        coefAux = A.V_Coef[contador1] * B.V_Coef[contador2];
+        expAux = A.V_Exp[contador1] * B.V_Exp[contador2];
+        signoAux = ObtenerSigno_DelCoeficiente(coefAux);
+        Insertar(signoAux,coefAux,expAux);
+        contador2++;
+      }
+      contador1++;
+      contador2 = 0;
+    }
+    
+  }
+  
+  
+  
   
 }
