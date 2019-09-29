@@ -9,7 +9,6 @@ Enlaces de referencia:
 */
 
 import Logic.Polinomio;
-import Logic.PolinomioII;
 import javax.swing.*;
 import java.util.Scanner;
 import java.awt.*;
@@ -26,6 +25,7 @@ public class ventanaPoli{
   private Polinomio A = new Polinomio();
   private Polinomio B = new Polinomio(); 
   private Polinomio C = new Polinomio();
+  private Polinomio D = new Polinomio();
   
   private JFrame ventana;
   private JTextField SignoTxt;
@@ -37,6 +37,7 @@ public class ventanaPoli{
   private JButton InsertarEn_A;
   private JButton InsertarEn_B;
   private JButton Sumar_AyB;
+  private JButton Multiplicar_AyB;
   
   private JLabel labelSigno;
   private JLabel labelCoef;
@@ -89,6 +90,10 @@ public class ventanaPoli{
      //Declaramos botón Sumar_AyB
      Sumar_AyB = new JButton("Sumar");
      Sumar_AyB.setBackground(Color.pink);
+     
+     //Declaramos botón Multiplicar_AyB
+     Multiplicar_AyB = new JButton("Multiplicar");
+     Multiplicar_AyB.setBackground(Color.pink);
         
     //Declaramos todos los labels    
     labelSigno= new JLabel("Signo");
@@ -192,6 +197,17 @@ public class ventanaPoli{
     gridConf.gridy = 4;
     ventana.add(Sumar_AyB, gridConf);
       
+    //Confi de Multiplicar_AyB
+    gridConf.ipady = 20;
+    gridConf.ipadx = 20;
+    gridConf.gridwidth = 6;
+    gridConf.insets = new Insets(10,10,10,10);
+    
+    //Ayadir Multiplicar_AyB en la ventana
+    gridConf.gridx = 3;
+    gridConf.gridy = 5;
+    ventana.add(Multiplicar_AyB, gridConf);  
+      
     //Añadir labels a la ventana
       gridConf.gridx = 0;
       gridConf.gridy = 0;
@@ -232,6 +248,13 @@ public class ventanaPoli{
         Sumar_AyBClick();
       }
     });
+    
+    //onclick Multiplicar_AyB
+    Multiplicar_AyB.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        Multiplicar_AyBClick();
+      }
+    });
       
     /*------------------------*/
     //ventanaM.pack();
@@ -269,19 +292,23 @@ public class ventanaPoli{
 	  ResultadoTxt.setText(A.ObtenerTodo());
 	}
  
- public void InsertarEn_BClick(){
+  public void InsertarEn_BClick(){
   
     char signo = SignoTxt.getText().charAt(0);
     double coeficiente = Double.parseDouble(CoefTxt.getText());
     int exponente = Integer.parseInt(ExpTxt.getText());
 	  B.Insertar(signo,coeficiente,exponente);
 	  ResultadoTxt.setText(B.ObtenerTodo());
- }
+  }
  
- public void Sumar_AyBClick(){
+  public void Sumar_AyBClick(){
    C.Sumar(A,B);
    ResultadoTxt.setText(C.ObtenerTodo());
- }
+  }
  
+  public void Multiplicar_AyBClick(){
+    D.Multiplicar(A,B);
+    ResultadoTxt.setText(D.ObtenerTodo());
+  }
   
 }

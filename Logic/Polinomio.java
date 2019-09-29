@@ -171,7 +171,7 @@ public class Polinomio{
     while(contador1 <= A.dim){
       while(contador2 <= B.dim){
         coefAux = A.V_Coef[contador1] * B.V_Coef[contador2];
-        expAux = A.V_Exp[contador1] * B.V_Exp[contador2];
+        expAux = A.V_Exp[contador1] + B.V_Exp[contador2];
         signoAux = ObtenerSigno_DelCoeficiente(coefAux);
         Insertar(signoAux,coefAux,expAux);
         contador2++;
