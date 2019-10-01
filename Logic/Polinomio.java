@@ -2,8 +2,6 @@
 
 package Logic;
 import java.util.Scanner;
-//import java.utils.Arrays.copyOf;
-//import java.util.Arrays;
 import java.util.*;
 
 public class Polinomio{

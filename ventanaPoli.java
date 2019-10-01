@@ -21,7 +21,6 @@ import javax.swing.JOptionPane;
 
 public class ventanaPoli{
   //Atributos
-  private Polinomio poli = new Polinomio();
   private Polinomio A = new Polinomio();
   private Polinomio B = new Polinomio(); 
   private Polinomio C = new Polinomio();
@@ -33,7 +32,6 @@ public class ventanaPoli{
   private JTextField ExpTxt;
   private JTextField ResultadoTxt;
   
-  private JButton Insertar;
   private JButton InsertarEn_A;
   private JButton InsertarEn_B;
   private JButton Sumar_AyB;
@@ -53,7 +51,7 @@ public class ventanaPoli{
   
     //Variablede tipo JFrame    
     ventana = new JFrame("ventanita");
-    ventana.setSize(550,550);
+    ventana.setSize(950,550);
     ventana.getContentPane().setBackground(Color.white);
     ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);/*Finaliza el programa*/
     ventana.setLayout(new GridBagLayout());  
@@ -75,9 +73,6 @@ public class ventanaPoli{
     Border bordeResultado = BorderFactory.createLineBorder(Color.pink, 2);
     ResultadoTxt.setBorder(bordeResultado);
     
-    //Declaramos botón Insertar
-    Insertar = new JButton("Insertar");
-    Insertar.setBackground(Color.pink);
     
     //Declaramos botón Insertar en A
     InsertarEn_A = new JButton("Insert in A");
@@ -88,7 +83,7 @@ public class ventanaPoli{
      InsertarEn_B.setBackground(Color.pink); 
      
      //Declaramos botón Sumar_AyB
-     Sumar_AyB = new JButton("Sumar");
+     Sumar_AyB = new JButton("  Sumar  ");
      Sumar_AyB.setBackground(Color.pink);
      
      //Declaramos botón Multiplicar_AyB
@@ -144,68 +139,61 @@ public class ventanaPoli{
     ventana.add(ExpTxt, gridConf);
     
     //Confi de pocicion ResultadoTxt
-    gridConf.gridx = 0;
+    gridConf.gridx = 1;
     gridConf.gridy = 4; 
     gridConf.ipady = 20;
-    gridConf.ipadx = 15;
-    gridConf.insets = new Insets(0,0,0,0);
+    gridConf.ipadx = 50;
+    gridConf.gridwidth = 6;
+    gridConf.insets = new Insets(0,0,3,3);
     
     //Añadir ResultadoTxt a la ventana
     ventana.add(ResultadoTxt, gridConf);
     
-    //Confi de Insertar 
-    gridConf.ipady = 20;
-    gridConf.ipadx = 20;
-    gridConf.gridwidth = 1;
-    gridConf.insets = new Insets(10,10,10,10);
-      
-    //Ayadir Insertar en la ventana
-    gridConf.gridx = 0;
-    gridConf.gridy = 3;
-    ventana.add(Insertar, gridConf);
+    
     
     //Confi de InsertarEn_A en la ventana
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
-    gridConf.gridwidth = 2;
+    gridConf.gridwidth = 1;
     gridConf.insets = new Insets(10,10,10,10);
     
     //Ayadir InsertarEn_A en la ventana
-    gridConf.gridx = 1;
+    gridConf.gridx = 0;
     gridConf.gridy = 3;
     ventana.add(InsertarEn_A, gridConf);
     
     //Confi de InsertarEn_B
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
-    gridConf.gridwidth = 3;
+    gridConf.gridwidth = 2;
     gridConf.insets = new Insets(10,10,10,10);
     
     //Ayadir InsertarEn_B en la ventana
-    gridConf.gridx = 3;
+    gridConf.gridx = 1;
     gridConf.gridy = 3;
     ventana.add(InsertarEn_B, gridConf);
     
     //Confi de Sumar_AyB
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
-    gridConf.gridwidth = 4;
+    gridConf.gridwidth = 3;
     gridConf.insets = new Insets(10,10,10,10);
     
     //Ayadir Sumar_AyB en la ventana
     gridConf.gridx = 3;
-    gridConf.gridy = 4;
+    gridConf.gridy = 3;
+    
     ventana.add(Sumar_AyB, gridConf);
       
     //Confi de Multiplicar_AyB
     gridConf.ipady = 20;
     gridConf.ipadx = 20;
-    gridConf.gridwidth = 6;
+    //gridConf.gridwidth = 4;
     gridConf.insets = new Insets(10,10,10,10);
     
     //Ayadir Multiplicar_AyB en la ventana
-    gridConf.gridx = 3;
-    gridConf.gridy = 5;
+    gridConf.gridx = 6;
+    gridConf.gridy = 3;
     ventana.add(Multiplicar_AyB, gridConf);  
       
     //Añadir labels a la ventana
@@ -221,12 +209,6 @@ public class ventanaPoli{
       gridConf.gridy = 2;
       ventana.add(labelExp, gridConf);
       
-    //onclick Insertar
-    Insertar.addActionListener(new ActionListener(){
-      public void actionPerformed(ActionEvent e){
-        InsertarClick();
-      }
-    });
     
     //onclick Insertar en A
     InsertarEn_A.addActionListener(new ActionListener(){
@@ -262,26 +244,12 @@ public class ventanaPoli{
     /*------------------------*/
   }
   
-  public void InsertarClick(){
+
     
-    char signo = SignoTxt.getText().charAt(0);
-    
-    double coeficiente = Double.parseDouble(CoefTxt.getText());
-    
-    
-    int exponente = Integer.parseInt(ExpTxt.getText());
-    
-    //Insgresar monomio
-    poli.Insertar(signo,coeficiente,exponente);
-    
-    //Mostrar polinomio en la ventana 
-    ResultadoTxt.setText(poli.ObtenerTodo());
-    
-    //Limpiar todas las cajas de texto
-    //SignoTxt.setText("");
-    //CoefTxt.setText("");
-    //ExpTxt.setText("");    
-  }
+  //Limpiar todas las cajas de texto
+  //SignoTxt.setText("");
+  //CoefTxt.setText("");
+
     
 	public void InsertarEn_AClick(){
 	
